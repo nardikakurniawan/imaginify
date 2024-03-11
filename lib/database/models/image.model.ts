@@ -17,8 +17,8 @@ export interface IImage extends Document {
     firstName: string;
     lastName: string;
   };
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const ImageSchema = new Schema({
@@ -30,12 +30,12 @@ const ImageSchema = new Schema({
   height: { type: Number },
   config: { type: Object },
   transformationUrl: { type: String },
-  aspectRasio: { type: String },
+  aspectRatio: { type: String },
   color: { type: String },
   prompt: { type: String },
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   createdAt: { type: Date, default: Date.now },
-  updateAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 const Image = models?.Image || model('Image', ImageSchema);
